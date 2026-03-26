@@ -359,7 +359,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8885347540494124542}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -452,7 +452,7 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 27101315507917719}
-  m_TextViewport: {fileID: 0}
+  m_TextViewport: {fileID: 6117847472448359376}
   m_TextComponent: {fileID: 1510850686658749190}
   m_Placeholder: {fileID: 8862554016459114621}
   m_VerticalScrollbar: {fileID: 0}

@@ -35,23 +35,25 @@ public class MainManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
     public void OnMiddle() //목차 삽입
     {
-        if (content.transform.childCount == 1)
+        if (content.transform.childCount == 1 && content.GetChild(0).GetComponent<TMP_InputField>().text == "") // 백지 상태라면
         {
-            Destroy(content.GetChild(0));
+            Destroy(content.GetChild(0).gameObject); // 현재 용지 제거
 
             Instantiate(middleMemo, content);
             contentchilds.Add(0);
             Instantiate(world, content);
             contentchilds.Add(1);
         }
-        else
+        else // 이미 내용이 있다면
         {
+            Debug.Log("ㅁㄴㅇㄹ");
+
             Instantiate(middleMemo, content);
             contentchilds.Add(0);
             Instantiate(world, content);
@@ -69,5 +71,7 @@ public class MainManager : MonoBehaviour
         {
             data.what[i] = content.GetChild(i).transform.Find("Text").GetComponentInChildren<TextMeshProUGUI>().text;
         }
+
+        SceneManager.LoadScene(0);
     }
 }

@@ -1,4 +1,6 @@
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static MainManager; // using 메인메니저하니까 스태틱 접근 가능
 
 public class HomeManager : MonoBehaviour
@@ -13,5 +15,10 @@ public class HomeManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void Open()
+    {
+        SceneManager.LoadScene(1);
     }
 }
