@@ -1,19 +1,21 @@
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Purchasing.MiniJSON;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.IO;
+using UnityEngine.UIElements;
 
 public class MainManager : MonoBehaviour
 {
     public TMP_Text mainnamed;
-    public Transform content;
+    public static Transform content;
     public GameObject middleMemo;
     public GameObject world;
+    public ScrollRect scroll;
 
     public List<int> contentchilds;
     public List<string> whats;

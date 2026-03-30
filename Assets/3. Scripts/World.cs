@@ -24,7 +24,7 @@ public class World : MonoBehaviour
         float mTI = memotext.textInfo.lineCount;
         if (mTI > startmemoT) // 맨 처음보다 문자열이 늘었다면
         {
-            float mt = mTI - startmemoT; // 늘어난 문자열을 계산
+            float mt = mTI - startmemoT; // 늘어난 문자열을 계산(현 문자열 수 - 이전 문자열 수
 
             float nowL = startyougjiL + 50 * mt; // 원래 용지 크기에서 50 씩 늘어날 예정.
             yougjiLengh.sizeDelta = new Vector2(yougjiLengh.rect.x, nowL);
@@ -32,3 +32,4 @@ public class World : MonoBehaviour
         }
     }
 }
+
