@@ -343,7 +343,6 @@ GameObject:
   - component: {fileID: 5150430036469420930}
   - component: {fileID: 9107809802533536690}
   - component: {fileID: 1062511948736037290}
-  - component: {fileID: 4590187579194397599}
   - component: {fileID: 8569003765542252704}
   m_Layer: 5
   m_Name: world
@@ -371,7 +370,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 549.5, y: 0}
-  m_SizeDelta: {x: 1022.1, y: 0}
+  m_SizeDelta: {x: 1022.1, y: 300}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5352195502849591600
 CanvasRenderer:
@@ -546,20 +545,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &4590187579194397599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8885347540494124542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
-  m_VerticalFit: 2
 --- !u!114 &8569003765542252704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,3 +561,4 @@ MonoBehaviour:
   startyougjiL: 0
   memotext: {fileID: 0}
   yougjiLengh: {fileID: 0}
+  linelimit: 0

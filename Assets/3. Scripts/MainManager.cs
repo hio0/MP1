@@ -11,8 +11,9 @@ using UnityEngine.UIElements;
 
 public class MainManager : MonoBehaviour
 {
-    public TMP_Text mainnamed;
     public static Transform content;
+
+    public TMP_Text mainnamed;
     public GameObject middleMemo;
     public GameObject world;
     public ScrollRect scroll;
@@ -31,6 +32,7 @@ public class MainManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        content = GameObject.Find("Content").transform;
         Instantiate(world, content);
     }
 
@@ -54,8 +56,6 @@ public class MainManager : MonoBehaviour
         }
         else // 이미 내용이 있다면
         {
-            Debug.Log("ㅁㄴㅇㄹ");
-
             Instantiate(middleMemo, content);
             contentchilds.Add(0);
             Instantiate(world, content);
