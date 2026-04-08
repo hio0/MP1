@@ -12,6 +12,8 @@ public class World : MonoBehaviour
     public TMP_Text memotext;
     public RectTransform yougjiLengh;
     public int linelimit;
+    public LayoutElement le;
+
 
     int me;
 
@@ -32,11 +34,12 @@ public class World : MonoBehaviour
     void Update()
     {
         float mTI = memotext.textInfo.lineCount;
+        /*
         if (mTI > startmemoT) // 맨 처음보다 문자열이 늘었다면
         {
             float mt = mTI - startmemoT; // 늘어난 문자열을 계산(현 문자열 수 - 이전 문자열 수
 
-            if (me != 0 && mTI == linelimit)
+            if (me != 0 && mTI == linelimit) 
             {
                 for (int i = me; i < content.childCount; i++) // 다음 순서 오브젝트들을 한칸식 이동.
                 {
@@ -55,6 +58,9 @@ public class World : MonoBehaviour
             }
 
         }
+        */
+
+        le.layoutPriority = me;
     }
 }
 
