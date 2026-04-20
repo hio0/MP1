@@ -7,15 +7,12 @@ using System.Collections;
 
 public class World : MonoBehaviour
 {
-    public float startmemoT;
+    public int lastline;
     public float startyougjiL;
     public TMP_Text memotext;
     public RectTransform yougjiLengh;
-    public int linelimit;
-    public LayoutElement le;
 
-
-    int me;
+    public string selectRange;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,44 +20,27 @@ public class World : MonoBehaviour
         memotext = gameObject.transform.Find("Text").GetComponentInChildren<TextMeshProUGUI>();
         yougjiLengh = gameObject.transform.parent.GetComponentInParent<RectTransform>();
 
-        startmemoT = memotext.textInfo.lineCount;
         startyougjiL = yougjiLengh.rect.height;
-
-        me = content.childCount - 1; // 내가 몇번째 자식인가?
-        linelimit = 4;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float mTI = memotext.textInfo.lineCount;
-        /*
-        if (mTI > startmemoT) // 맨 처음보다 문자열이 늘었다면
+        if (memotext.textInfo.lineCount != lastline) // 문자열 길이가 기존과 달라졌다면
         {
-            float mt = mTI - startmemoT; // 늘어난 문자열을 계산(현 문자열 수 - 이전 문자열 수
+            int s = memotext.textInfo.lineCount * 40;
+            yougjiLengh.sizeDelta = new Vector2(yougjiLengh.sizeDelta.x, 2000 + s);
 
-            if (me != 0 && mTI == linelimit) 
-            {
-                for (int i = me; i < content.childCount; i++) // 다음 순서 오브젝트들을 한칸식 이동.
-                {
-                    RectTransform rect = content.GetChild(i).GetComponent<RectTransform>();
-                    rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, rect.anchoredPosition.y - 50f);
-                }
 
-                linelimit++;
-                float nowL = startyougjiL + 50 * mt;
-                yougjiLengh.sizeDelta = new Vector2(yougjiLengh.rect.x, nowL);
-            }
-            else
-            {
-                float nowL = startyougjiL + 50 * mt; // 원래 용지 크기에서 50 씩 늘어날 예정.
-                yougjiLengh.sizeDelta = new Vector2(yougjiLengh.rect.x, nowL);
-            }
-
+            RectTransform rect = gameObject.GetComponent<RectTransform>();
+            rect.sizeDelta = new Vector2(rect.sizeDelta.x, 100 + s);
         }
-        */
 
-        le.layoutPriority = me;
+        lastline = memotext.textInfo.lineCount;
+
+        InputField iF = gameObject.GetComponent<InputField>();
+        selectRange = iF.text.Substring(iF.selectionAnchorPosition, iF.selectionFocusPosition - iF.selectionAnchorPosition); // 선택 범위 텍스트
+        select = selectRange;
     }
 }
 

@@ -12,6 +12,7 @@ using UnityEngine.UIElements;
 public class MainManager : MonoBehaviour
 {
     public static Transform content;
+    public static string select;
 
     public TMP_Text mainnamed;
     public GameObject middleMemo;
@@ -39,7 +40,7 @@ public class MainManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
     }
 
 
@@ -60,6 +61,30 @@ public class MainManager : MonoBehaviour
             contentchilds.Add(0);
             Instantiate(world, content);
             contentchilds.Add(1);
+        }
+    }
+
+    public void OnBold()
+    {
+        if(select != "")
+        {
+            
+        }
+    }
+
+    public void OnItalic()
+    {
+        if (select != "")
+        {
+
+        }
+    }
+
+    public void OnStrikeThough()
+    {
+        if (select != "")
+        {
+
         }
     }
 
