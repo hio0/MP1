@@ -11,6 +11,7 @@ public class World : MonoBehaviour
     public float startyougjiL;
     public TMP_Text memotext;
     public RectTransform yougjiLengh;
+    TMP_InputField iF;
 
     public string selectRange;
 
@@ -19,6 +20,7 @@ public class World : MonoBehaviour
     {
         memotext = gameObject.transform.Find("Text").GetComponentInChildren<TextMeshProUGUI>();
         yougjiLengh = gameObject.transform.parent.GetComponentInParent<RectTransform>();
+        iF = gameObject.GetComponent<TMP_InputField>();
 
         startyougjiL = yougjiLengh.rect.height;
     }
@@ -28,7 +30,7 @@ public class World : MonoBehaviour
     {
         if (memotext.textInfo.lineCount != lastline) // 문자열 길이가 기존과 달라졌다면
         {
-            int s = memotext.textInfo.lineCount * 40;
+            int s = memotext.textInfo.lineCount * 50;
             yougjiLengh.sizeDelta = new Vector2(yougjiLengh.sizeDelta.x, 2000 + s);
 
 
@@ -38,9 +40,14 @@ public class World : MonoBehaviour
 
         lastline = memotext.textInfo.lineCount;
 
-        InputField iF = gameObject.GetComponent<InputField>();
-        selectRange = iF.text.Substring(iF.selectionAnchorPosition, iF.selectionFocusPosition - iF.selectionAnchorPosition); // 선택 범위 텍스트
-        select = selectRange;
+        if(iF.selectionAnchorPosition > 0 && iF.selectionFocusPosition != iF.selectionAnchorPosition) // 드래그 되었다
+        {
+            int a = Mathf.Min(iF.selectionAnchorPosition, iF.selectionFocusPosition); // 작은 쪽
+            int b = Mathf.Max(iF.selectionAnchorPosition, iF.selectionFocusPosition); // 큰 쪽
+
+            selectRange = iF.text.Substring(a, b - a); // 드레그의 텍스트 가져오기(앞으로 드레그하던, 뒤로 드래그하던 동일하게,) 
+            select = selectRange;
+        }
     }
 }
 

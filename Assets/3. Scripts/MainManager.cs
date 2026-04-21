@@ -1,9 +1,12 @@
+using Mono.Cecil.Cil;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Purchasing.MiniJSON;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,6 +24,9 @@ public class MainManager : MonoBehaviour
 
     public List<int> contentchilds;
     public List<string> whats;
+
+    string open;
+    string close;
 
     [System.Serializable]
     public class Data
@@ -40,7 +46,7 @@ public class MainManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
 
@@ -64,29 +70,32 @@ public class MainManager : MonoBehaviour
         }
     }
 
-    public void OnBold()
+    public void OnStyle(string st)
     {
-        if(select != "")
+        if (select != null)
         {
-            
+            string what = $"<{st}>";
+            Color c = gameObject.GetComponent<UnityEngine.UI.Image>().color;
+
+            if (select.Contains(what))
+            {
+                c.a = 76f;
+
+                open.Replace(what, "");
+                close.Replace($"/{what}", "");
+            }
+            else
+            {
+                open += what;
+                close = $"/{what}" + close;
+
+                c.a = 105f;
+            }
+
+            select = open + select + close;
         }
     }
 
-    public void OnItalic()
-    {
-        if (select != "")
-        {
-
-        }
-    }
-
-    public void OnStrikeThough()
-    {
-        if (select != "")
-        {
-
-        }
-    }
 
     public void End()
     {
