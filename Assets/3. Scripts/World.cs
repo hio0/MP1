@@ -17,8 +17,10 @@ public class World : MonoBehaviour
     public string selectRange;
     public string selectRangeP;
 
+    /*
     int a;
     int b;
+    */
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,7 +37,7 @@ public class World : MonoBehaviour
     {
         if (memotext.textInfo.lineCount != lastline) // 문자열 길이가 기존과 달라졌다면
         {
-            int s = memotext.textInfo.lineCount * 50;
+            int s = memotext.textInfo.lineCount * 70;
             yougjiLengh.sizeDelta = new Vector2(yougjiLengh.sizeDelta.x, 2000 + s);
 
 
@@ -44,6 +46,7 @@ public class World : MonoBehaviour
         }
 
         lastline = memotext.textInfo.lineCount;
+        /*
 
         if(iF.selectionAnchorPosition > 0 && iF.selectionFocusPosition != iF.selectionAnchorPosition) // 드래그 되었다
         {
@@ -57,7 +60,9 @@ public class World : MonoBehaviour
 
             you = gameObject.GetComponent<World>();
         }
+        */
     }
+    /*
 
     public bool IsIt(string st)
     {
@@ -104,5 +109,6 @@ public class World : MonoBehaviour
             return false;
         }
     }
+    */
 }
 
